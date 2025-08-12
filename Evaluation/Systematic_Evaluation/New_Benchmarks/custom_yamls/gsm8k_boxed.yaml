@@ -1,0 +1,41 @@
+tag:
+  - math_word_problems
+task: gsm8k_boxed
+dataset_path: gsm8k
+dataset_name: main
+output_type: generate_until
+training_split: train
+fewshot_split: train
+test_split: test
+doc_to_text: |
+  Question: {{question}}
+  Carefully reason through the problem step by step.
+  Once you have reached a conclusion, clearly write your final answer inside the \boxed{} environment.
+doc_to_target: "{{answer}}"
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: false
+    regexes_to_ignore:
+      - ","          # strip thousands separators
+      - "\\s"        # strip all whitespace
+      - "\\$"        # strip dollar signs
+      - "(?s).*#### "  # strip GSM8Ks default marker, if present
+      - "\\.$"       # strip trailing period
+generation_kwargs:
+  until:
+    - "<end_of_turn>"
+    - "Question:"
+    - "</s>"
+    - "<|im_end|>"
+  do_sample: false
+  temperature: 0.5
+  max_new_tokens: 1500
+  max_length: 2300
+repeats: 1
+num_fewshot: 0
+
+metadata:
+  version: 3.1
