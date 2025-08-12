@@ -1,3 +1,10 @@
+# Download the two files:
+https://github.com/huggingface/trl/blob/main/examples/accelerate_configs/deepspeed_zero3.yaml
+and
+https://github.com/huggingface/trl/blob/main/trl/scripts/sft.py
+
+# Launch the script
+
 accelerate launch --config_file examples/accelerate_configs/deepspeed_zero3.yaml sft.py \
     --model_name_or_path google/gemma-3-27b-it \
     --dataset_name GemMaroc/TULU-3-50k-darija-english \
