@@ -1,0 +1,38 @@
+{
+  "model_name": "google/gemma-3-4b-it",
+  "finetune_name": "gemma3-4b-FT-deita",
+  "dataset_name": "DarijaGreenAI/Deita_5k_darija3k7_english1k3_chat_template_2048token_train_val",
+  "lora": {
+    "r": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "target_modules": ["q_proj","v_proj","k_proj","o_proj"],
+    "task_type": "CAUSAL_LM"
+  },
+  "training": {
+    "output_dir": "gemma3-4b-FT-deita",
+    "num_train_epochs": 6,
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "gradient_checkpointing": false,
+    "optim": "adamw_torch_fused",
+    "learning_rate": 5e-4,
+    "max_grad_norm": 0.3,
+    "lr_scheduler_type": "cosine",
+    "logging_steps": 20,
+    "save_strategy": "steps",
+	"save_steps": 400,
+    "bf16": true,
+    "push_to_hub": true,
+    "report_to": "wandb",
+    "seed": 1015,
+    "max_seq_length": 2048,
+    "hub_model_id": "AbderrahmanSkiredj1/gemma3-4b-FT-deita",
+    "hub_private_repo": true
+  },
+  "wandb": {
+    "api_key": "dcfa9a84b552160498e604aafc0b83ecd86d1b87",
+    "project": "gemma3-deita-finetune",
+    "run_name": "gemma3-4b-deita-sft-run"
+  }
+}
