@@ -3,6 +3,10 @@ https://github.com/huggingface/trl/blob/main/examples/accelerate_configs/deepspe
 and
 https://github.com/huggingface/trl/blob/main/trl/scripts/sft.py
 
+# Do the installations
+
+see installation_steps.txt
+
 # Launch the script
 
 accelerate launch --config_file examples/accelerate_configs/deepspeed_zero3.yaml sft.py \
