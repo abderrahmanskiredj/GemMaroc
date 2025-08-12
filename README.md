@@ -26,7 +26,7 @@ In just **2.5 months** since its release (**May 22, 2025**), **GemMaroc** has be
 
 ## 📊 Evaluation Results
 
-| Model / Benchmark               | Size (B) | DarijaMMLU | DarijaHellaSwag | Sentiment Analysis | GSM8K-darija-gen | chrF  | ROUGE-1 | ROUGE-L | BERTScore | MMLU  | TruthfulQA | HellaSwag | GSM8K @5 | GSM8K-gen |
+| Model / Benchmark               | Size (B) | DarijaMMLU | DarijaHellaSwag | Sentiment Analysis | GSM8K-darija-gen | Summarization chrF  | Summarization ROUGE-1 | Summarization ROUGE-L | Summarization BERTScore | MMLU  | TruthfulQA | HellaSwag | GSM8K @5 | GSM8K-gen |
 |----------------------------------|----------|------------|-----------------|--------------------|------------------|-------|---------|---------|-----------|-------|------------|-----------|----------|-----------|
 | Gemma3-4b-it                     | 4        | 32.8       | 36.3            | 58.94              | 52.77            | 27.22 | 8.38    | 8.19    | 37.23     | 51.1  | 40.88      | 47.65     | 74.75    | 89.08     |
 | **GemMaroc-4b-Tulu (ours)**      | 4        | 47.53      | 47.13           | 53.29              | 37.91            | 28.46 | 8.89    | 8.76    | 39.27     | 54.14 | 43.33      | 73.95     | 55.95    | 71.57     |
