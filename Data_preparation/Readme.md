@@ -7,6 +7,8 @@ For each dialog:
 * Discard any exchanges beyond this limit.
 * If truncation would result in a partial (incomplete) utterance, remove that utterance entirely to avoid cutting it mid-sentence.
 
+Finally, split the dataset so that 30% remains in English and 70% is translated into Darija. An interesting trick is that translation can increase the number of tokens. To avoid losing content due to token expansion, we select the 70% to be translated from the entries with the fewest tokens.
+
 Refer to **`Filter_tulu.ipynb`** for implementation details.
 
 Here’s a cleaner, more precise version of your steps:
@@ -15,7 +17,7 @@ Here’s a cleaner, more precise version of your steps:
 
 ## Step 2 – Perform the Translation
 
-Translate 30% of the dataset into **Darija**, keeping the remaining 70% in **English**.
+See translate_data_to_darija.py
 
 ---
 
