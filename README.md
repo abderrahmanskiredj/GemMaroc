@@ -51,6 +51,14 @@ To run the model locally in [LM Studio](https://lmstudio.ai):
 
 AbderrahmanSkiredj1/GemMaroc-27b-it-GGUF
 
+or
+
+AbderrahmanSkiredj1/GemMaroc-4b-tulu-Q4_K_M-GGUF
+
+or
+
+AbderrahmanSkiredj1/GemMaroc-4b-v1.5-Q4_K_M-GGUF
+
 ````
 
 4. Download the desired quantization variant.
