@@ -28,3 +28,5 @@ See translate_data_to_darija.py
 * Retain only the first 2,048 tokens in each dialog.
 * Discard any exchanges beyond this limit.
 * If truncation results in an incomplete utterance, remove that utterance entirely to avoid mid-sentence cuts.
+
+See Clean_translated_data_prepare_final_data.ipynb
