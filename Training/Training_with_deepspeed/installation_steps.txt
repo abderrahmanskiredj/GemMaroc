@@ -1,0 +1,53 @@
+(base) [abderrahman.skiredj@slurm-a100-gpu-h22a2-u10-sv greenda]$ nvidia-smi
+Tue Aug 12 17:21:06 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.247.01             Driver Version: 535.247.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  | 00000000:41:00.0 Off |                    0 |
+| N/A   26C    P0              57W / 500W |      0MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM4-80GB          On  | 00000000:81:00.0 Off |                    0 |
+| N/A   28C    P0              57W / 500W |      0MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+
+(base) [abderrahman.skiredj@slurm-a100-gpu-h22a2-u10-sv greenda]$ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+
+
+
+# fresh env (Python 3.10 plays nicest with this combo)
+conda create --name deepspeedenv python=3.10 -y
+conda activate deepspeedenv
+
+# build tools DeepSpeed JIT needs
+conda install -y -c conda-forge cmake ninja git git-lfs
+
+# keep pip tooling recent
+pip install --upgrade pip setuptools wheel
+
+# PyTorch + CUDA 12.1 wheels that work with your 12.2 driver
+pip install --index-url https://download.pytorch.org/whl/cu121 torch==2.5.1+cu121 torchvision==0.20.1+cu121
+
+pip install transformers==4.55.0 accelerate==1.10.0 deepspeed==0.17.4 trl==0.21.0 peft==0.17.0 liger-kernel==0.6.1 sentencepiece
+
+# (optional but handy) sanity checks
+python - << 'PY'
+import torch, transformers, accelerate, deepspeed, trl, peft, datasets
+print("torch:", torch.__version__)
+print("transformers:", transformers.__version__)
+print("accelerate:", accelerate.__version__)
+print("deepspeed:", deepspeed.__version__)
+print("trl:", trl.__version__)
+print("peft:", peft.__version__)
+print("datasets:", datasets.__version__)
+PY
