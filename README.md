@@ -1,6 +1,6 @@
 # 🌍💬 GemMaroc — State-of-the-Art Moroccan Darija LLM
 
-![GemMaroc Banner](assets/gemmaroc logo.png) <!-- Optional if you have a banner image -->
+![GemMaroc Banner](assets/gemmaroc_logo.png) <!-- Optional if you have a banner image -->
 
 **GemMaroc** is an **open-source, instruction-tuned** Large Language Model for **Moroccan Arabic (Darija)**, built on **Gemma** and fine-tuned with an *efficient, low-carbon* methodology.
 
