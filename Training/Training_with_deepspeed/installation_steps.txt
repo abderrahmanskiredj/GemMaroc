@@ -16,12 +16,12 @@ Tue Aug 12 17:21:06 2025
 |                                         |                      |             Disabled |
 +-----------------------------------------+----------------------+----------------------+
 
-(base) [abderrahman.skiredj@slurm-a100-gpu-h22a2-u10-sv greenda]$ nvcc -V
+(base) [abderrahman.skiredj@slurm-a100-gpu-h22a2-u14-sv greenda]$ nvcc -V
 nvcc: NVIDIA (R) Cuda compiler driver
-Copyright (c) 2005-2020 NVIDIA Corporation
-Built on Mon_Oct_12_20:09:46_PDT_2020
-Cuda compilation tools, release 11.1, V11.1.105
-Build cuda_11.1.TC455_06.29190527_0
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Tue_Jun_13_19:16:58_PDT_2023
+Cuda compilation tools, release 12.2, V12.2.91
+Build cuda_12.2.r12.2/compiler.32965470_0
 
 
 
@@ -38,7 +38,7 @@ pip install --upgrade pip setuptools wheel
 # PyTorch + CUDA 12.1 wheels that work with your 12.2 driver
 pip install --index-url https://download.pytorch.org/whl/cu121 torch==2.5.1+cu121 torchvision==0.20.1+cu121
 
-pip install transformers==4.55.0 accelerate==1.10.0 deepspeed==0.17.4 trl==0.21.0 peft==0.17.0 liger-kernel==0.6.1 sentencepiece
+pip install transformers==4.55.0 accelerate==1.10.0 deepspeed==0.17.4 trl==0.22.0.dev0 peft==0.17.0 liger-kernel==0.6.1 sentencepiece
 
 # (optional but handy) sanity checks
 python - << 'PY'
@@ -51,3 +51,17 @@ print("trl:", trl.__version__)
 print("peft:", peft.__version__)
 print("datasets:", datasets.__version__)
 PY
+
+Result:
+
+torch: 2.5.1+cu121
+transformers: 4.55.0
+accelerate: 1.10.0
+deepspeed: 0.17.4
+trl: 0.22.0.dev0
+peft: 0.17.0
+datasets: 4.0.0
+
+# To Make sure DeepSpeed works properly, you can execute the dummy test_deepspeed.py script, just run:
+
+deepspeed --num_gpus 1 dummy_test_deepspeed.py
