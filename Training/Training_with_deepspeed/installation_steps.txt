@@ -65,3 +65,17 @@ datasets: 4.0.0
 # To Make sure DeepSpeed works properly, you can execute the dummy test_deepspeed.py script, just run:
 
 deepspeed --num_gpus 1 dummy_test_deepspeed.py
+
+
+
+# a) make Triton cache local (avoids NFS hiccups)
+export TRITON_CACHE_DIR="${SLURM_TMPDIR:-/tmp}/$USER/triton_cache"; mkdir -p "$TRITON_CACHE_DIR"   # NFS -> local. :contentReference[oaicite:5]{index=5}
+
+# b) make NCCL fail fast instead of hanging; add debug
+export NCCL_ASYNC_ERROR_HANDLING=1                                    # crash on comm timeouts instead of silent hang
+export NCCL_DEBUG=INFO                                                 # NCCL logging
+export TORCH_DISTRIBUTED_DEBUG=DETAIL                                  # PyTorch DDP logging
+export NCCL_IB_DISABLE=1                                               # single-node: avoid IB path if present
+# (optional while debugging, slower)
+# export NCCL_BLOCKING_WAIT=1                                          # may slow training but surfaces errors quicker. :contentReference[oaicite:6]{index=6}
+
