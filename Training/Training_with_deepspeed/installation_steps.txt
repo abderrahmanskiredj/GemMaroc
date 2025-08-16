@@ -23,7 +23,10 @@ Built on Tue_Jun_13_19:16:58_PDT_2023
 Cuda compilation tools, release 12.2, V12.2.91
 Build cuda_12.2.r12.2/compiler.32965470_0
 
-
+(I ran this before:
+module purge
+module load CUDA/12.2.0
+)
 
 # fresh env (Python 3.10 plays nicest with this combo)
 conda create --name deepspeedenv python=3.10 -y
