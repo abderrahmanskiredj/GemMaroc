@@ -123,6 +123,14 @@ TRANSLATION_PROMPT = """
 
 ---
 
+❌ **DO NOT include any preface like “Here is your translation,”:**
+- Do NOT include any preface like “Here is your translation,” no headings, no quotes, no backticks, no tags, no extra commentary.
+- Do NOT repeat these instructions.
+- Output ONLY the translated text. Do NOT add any preface, headings, labels, explanations, quotes, backticks, or extra text. If you are about to write anything other than the translation, stop.
+- Do not put your translation in a json format.
+
+---
+
 ### 📌 GOAL:
 
 Make the content **clear and naturally understandable** to Moroccan Arabic speakers while **respecting the technical integrity** of the original text.
