@@ -31,8 +31,9 @@
     "hub_private_repo": true
   },
   "wandb": {
-    "api_key": "dcfa9a84b552160498e604aafc0b83ecd86d1b87",
+    "api_key": "dcfa9a8486d1b87",
     "project": "gemma3-deita-finetune",
     "run_name": "gemma3-4b-deita-sft-run"
   }
 }
+
