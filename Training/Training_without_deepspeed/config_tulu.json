@@ -35,8 +35,9 @@
     "hub_private_repo": true
   },
   "wandb": {
-    "api_key": "dcfa9a84b552160498e604aafc0b83ecd86d1b87",
+    "api_key": "dcfa9a84bcd86d1b87",
     "project": "gemma3-tulu-finetune",
     "run_name": "gemma3-4b-tulu-sft-run"
   }
 }
+
