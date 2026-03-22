@@ -6,7 +6,8 @@
 
 **GemMaroc** is an **open-source, instruction-tuned** Large Language Model for **Moroccan Arabic (Darija)**, built on **Gemma** and fine-tuned with an *efficient, low-carbon* methodology.
 
-In just **2.5 months** since its release (**May 22, 2025**), **GemMaroc** has been downloaded **16,733+ times** — proving the demand for inclusive AI that empowers underrepresented languages.
+As of **March 2026**, **GemMaroc** has reached **26,000+ downloads**, highlighting the growing demand for inclusive AI solutions for Moroccan Darija.  
+📊 Details: [download statistics notebook](Evaluation/measure_nb_downloads_gemmaroc.ipynb)
 
 ---
 
